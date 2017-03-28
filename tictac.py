@@ -1,3 +1,5 @@
+import sys
+import random
 print("Modes: Human vs. Human (1) - Human vs. Computer (2) - Computer vs. Human (3)")
 
 mode = input("Please select a game mode: ")
@@ -6,8 +8,6 @@ while mode != "1" and mode != "2" and mode != "3":
     mode = input(": ")
 
 gameisplaying = 1
-import sys
-import random
 
 if mode == "1":
     Player1 = input("Player1, enter your name here: ")
@@ -130,10 +130,28 @@ def comprandom(signal):
 
     if signal == "X" and step1 > 1:
         emptylist = []
-    if signal == "X" and step1 != 0:
         for i in range(1, 10):
-            if board[i] == (" "):
+            if board[i] == " ":
                 emptylist.append(i)
+
+        for i in emptylist:
+
+            board[i] = "X"
+            if checkLine('X'):
+                board[i] = " "
+                return i
+            else:
+                board[i] = " "
+
+        for i in emptylist:
+
+            board[i] = "O"
+            if checkLine('O'):
+                board[i] = " "
+                return i
+            else:
+                board[i] = " "
+
         return random.choice(emptylist)
 
     if signal == "O" and step1 == 1:
@@ -146,23 +164,30 @@ def comprandom(signal):
                 slots.append(i)
         return random.choice(slots)
 
-    if signal == "O" and step1 == 2:
-        if board[5] == " ":
-            return 5
-        else:
-            emptylist = []
-
-            for i in range(1, 10):
-                if board[i] == (" "):
-                    emptylist.append(i)
-            return random.choice(emptylist)
-
-    if signal == "O" and step1 > 2:
+    if signal == "O" and step1 > 1:
         emptylist = []
-
         for i in range(1, 10):
-            if board[i] == (" "):
+            if board[i] == " ":
                 emptylist.append(i)
+
+        for i in emptylist:
+
+            board[i] = "O"
+            if checkLine('O'):
+                board[i] = " "
+                return i
+            else:
+                board[i] = " "
+
+        for i in emptylist:
+
+            board[i] = "X"
+            if checkLine('X'):
+                board[i] = " "
+                return i
+            else:
+                board[i] = " "
+
         return random.choice(emptylist)
 
 
