@@ -1,5 +1,5 @@
 import sys
-import random
+from AI import *
 print("Modes: Human vs. Human (1) - Human vs. Computer (2) - Computer vs. Human (3)")
 
 mode = input("Please select a game mode: ")
@@ -16,179 +16,23 @@ if mode == "2":
     Player1 = input("Enter your name here: ")
 if mode == "3":
     Player2 = input("Enter your name here: ")
-
+board1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 wins_p1 = 0
 wins_p2 = 0
 
-board1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+print_text()
+print_text2()
 
-def show1():
-    print(board1[7], '|', board1[8], '|', board1[9])
-    print("---------")
-    print(board1[4], '|', board1[5], '|', board1[6])
-    print("---------")
-    print(board1[1], '|', board1[2], '|', board1[3])
-
-
-def decor(func):
-    def wrap():
-        print("************************************")
-        func()
-        print("************************************")
-    return wrap
-
-
-def print_text():
-    print(" Welcome to TicTacToe!")
-
-
-decorated = decor(print_text)
-decorated()
-
-
-def decor(func):
-    def wrap():
-        func()
-        print("-------------------------------------------------------------------------------------------------")
-    return wrap
-
-
-def print_text2():
-    print("INSTRUCTIONS: Use the numbers between 1-9, to place your mark. Press r to restart, or q to quit.")
-
-
-decorated = decor(print_text2)
-decorated()
-
-show1()
-
-
-def checkLine(char):
-    if board[1] == char and board[2] == char and board[3] == char:
-        return True
-    if board[4] == char and board[5] == char and board[6] == char:
-        return True
-    if board[7] == char and board[8] == char and board[9] == char:
-        return True
-    if board[1] == char and board[5] == char and board[9] == char:
-        return True
-    if board[3] == char and board[5] == char and board[7] == char:
-        return True
-    if board[1] == char and board[4] == char and board[7] == char:
-        return True
-    if board[2] == char and board[5] == char and board[8] == char:
-        return True
-    if board[3] == char and board[6] == char and board[9] == char:
-        return True
+show(board1)
 
 
 board = [" "] * 10
 
 
-def show():
-    print(board[7], '|', board[8], '|', board[9])
-    print("---------")
-    print(board[4], '|', board[5], '|', board[6])
-    print("---------")
-    print(board[1], '|', board[2], '|', board[3])
-
-
 attack1 = "a"
 attack2 = "a"
 step1 = 0
-
-
-def restartgame():
-    decorated = decor(print_text2)
-    decorated()
-    show1()
-    return board == [" "] * 10
-    return step1 == 0
-
-
-def comprandom(signal):
-    if signal == "X" and step1 == 0:
-        slots = (1, 3, 5, 7, 9)
-        return random.choice(slots)
-
-    if signal == "X" and step1 == 1:
-        if (board[1] == "X" or board[9] == "X") and (board[7] == " "):
-            return 7
-        if (board[1] == "X" or board[9] == "X") and (board[3] == " "):
-            return 3
-        if (board[3] == "X" or board[7] == "X") and (board[1] == " "):
-            return 1
-        if (board[3] == "X" or board[7] == "X") and (board[9] == " "):
-            return 9
-        if board[5] == "X":
-            blist = []
-            for i in range(1, 10, 2):
-                if board[i] == " ":
-                    blist.append(i)
-            return random.choice(blist)
-
-    if signal == "X" and step1 > 1:
-        emptylist = []
-        for i in range(1, 10):
-            if board[i] == " ":
-                emptylist.append(i)
-
-        for i in emptylist:
-
-            board[i] = "X"
-            if checkLine('X'):
-                board[i] = " "
-                return i
-            else:
-                board[i] = " "
-
-        for i in emptylist:
-
-            board[i] = "O"
-            if checkLine('O'):
-                board[i] = " "
-                return i
-            else:
-                board[i] = " "
-
-        return random.choice(emptylist)
-
-    if signal == "O" and step1 == 1:
-        for i in range(1, 10):
-            if board[i] == "X":
-                memi = i
-        slots = []
-        for i in range(1, 10, 2):
-            if i != memi:
-                slots.append(i)
-        return random.choice(slots)
-
-    if signal == "O" and step1 > 1:
-        emptylist = []
-        for i in range(1, 10):
-            if board[i] == " ":
-                emptylist.append(i)
-
-        for i in emptylist:
-
-            board[i] = "O"
-            if checkLine('O'):
-                board[i] = " "
-                return i
-            else:
-                board[i] = " "
-
-        for i in emptylist:
-
-            board[i] = "X"
-            if checkLine('X'):
-                board[i] = " "
-                return i
-            else:
-                board[i] = " "
-
-        return random.choice(emptylist)
 
 
 while gameisplaying:
@@ -212,12 +56,12 @@ while gameisplaying:
                 attack1 = input(Player1 + " select a spot: ")
             else:
                 print("Computer moved")
-                attack1 = comprandom("X")
+                attack1 = comprandom("X", step1, board)
             if attack1 == "r":
                 print("-" + Player1 + " restarted the game-")
                 board = [" "] * 10
                 step1 = 0
-                restartgame()
+                restartgame(step1, board, board1)
                 continue
             if attack1 == "q":
                 sys.exit(0)
@@ -238,9 +82,9 @@ while gameisplaying:
             print("As i said before you have to choose a !NUMBER! between 1 and 9. Try again!")
             continue
 
-    show()
+    show(board)  # show to ply2
 
-    if checkLine('X'):
+    if checkLine('X', board):
         board = [" "] * 10
         step1 = 0
         wins_p1 += 1
@@ -268,10 +112,10 @@ while gameisplaying:
         if user_input == "n":
             break
         if user_input == "y":
-            restartgame()
+            restartgame(step1, board, board1)
             continue
 
-    if step1 == 5 and checkLine('X') != True:
+    if step1 == 5 and checkLine('X', board) != True:
         board = [" "] * 10
         step1 = 0
         print("This is a draw!")
@@ -293,7 +137,7 @@ while gameisplaying:
         if user_input == "n":
             break
         if user_input == "y":
-            restartgame()
+            restartgame(step1, board, board1)
             continue
 
     while True:
@@ -303,12 +147,12 @@ while gameisplaying:
                 attack2 = input(Player2 + " it's your turn now:")
             else:
                 print("computer moved")
-                attack2 = comprandom("O")
+                attack2 = comprandom("O", step1, board)
             if attack2 == "r":
                 print("-Player 2 restarted the game-")
                 board = [" "] * 10
                 step1 = 0
-                restartgame()
+                restartgame(step1, board, board1)
                 break
             if attack2 == "q":
                 sys.exit(0)
@@ -327,8 +171,8 @@ while gameisplaying:
             print("As i said before you have to choose a !NUMBER! between 1 and 9. Try again!")
             continue
     if attack2 != 'r':
-        show()
-    if checkLine('O'):
+        show(board)  # show to ply1
+    if checkLine('O', board):
         board = [" "] * 10
         step1 = 0
         wins_p2 += 1
@@ -355,5 +199,5 @@ while gameisplaying:
         if user_input == "n":
             break
         if user_input == "y":
-            restartgame()
+            restartgame(step1, board, board1)
             continue
