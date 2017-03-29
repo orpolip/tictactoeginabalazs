@@ -1,10 +1,12 @@
-
-# def decor(func):
-# def wrap():
-# print("************************************")
-# func()
-# print("************************************")
-# return wrap
+def difficulty(difficulty):
+    difficulty = input("Select difficulty level: Amateur (1) Godlike(2): ")
+    difficulty = int(difficulty)
+    return difficulty
+    while difficulty != 1 and difficulty != 2:
+        print("Difficulty have to set 1 or 2")
+        difficulty = input(":")
+        difficulty = int(difficulty)
+        return difficulty
 
 
 def print_text():
@@ -12,19 +14,13 @@ def print_text():
     print(" Welcome to TicTacToe!")
     print("************************************")
 
-# def decor(func):
-    # def wrap():
-    # func()
-    # print("-------------------------------------------------------------------------------------------------")
-    # return wrap
-
 
 def print_text2():
     print("INSTRUCTIONS: Use the numbers between 1-9, to place your mark. Press r to restart, or q to quit.")
     print("-------------------------------------------------------------------------------------------------")
 
 
-def checkLine(char, board):  # paraméterrel hívni(boardosfasz)
+def checkLine(char, board):
     if board[1] == char and board[2] == char and board[3] == char:
         return True
     if board[4] == char and board[5] == char and board[6] == char:
@@ -43,7 +39,7 @@ def checkLine(char, board):  # paraméterrel hívni(boardosfasz)
         return True
 
 
-def show(board):  # paraméterrel hívni(boardosfasz)
+def show(board):
     print(board[7], '|', board[8], '|', board[9])
     print("---------")
     print(board[4], '|', board[5], '|', board[6])
@@ -51,15 +47,14 @@ def show(board):  # paraméterrel hívni(boardosfasz)
     print(board[1], '|', board[2], '|', board[3])
 
 
-def restartgame(step1, board, board1):  # paraméterrel hívni(boardosfasz)
-    decorated = decor(print_text2)
-    decorated()
+def restartgame(step1, board, board1):
+    print_text2()
     show(board1)
     return board == [" "] * 10
     return step1 == 0
 
 
-def comprandom(signal, step1, board):  # paraméterrel hívni(boardosfasz)
+def comprandom(signal, step1, board):
     import random
     if signal == "X" and step1 == 0:
         slots = (1, 3, 5, 7, 9)
@@ -142,3 +137,36 @@ def comprandom(signal, step1, board):  # paraméterrel hívni(boardosfasz)
                 board[i] = " "
 
         return random.choice(emptylist)
+
+
+def compbasic(signal, step1, board):
+    import random
+    if signal == "X" and step1 == 0:
+        slots = (1, 3, 5, 7, 9)
+        return random.choice(slots)
+
+    if signal == "X" and step1 == 1:
+        if (board[1] == "X" or board[9] == "X") and (board[7] == " "):
+            return 7
+        if (board[1] == "X" or board[9] == "X") and (board[3] == " "):
+            return 3
+        if (board[3] == "X" or board[7] == "X") and (board[1] == " "):
+            return 1
+        if (board[3] == "X" or board[7] == "X") and (board[9] == " "):
+            return 9
+        if board[5] == "X":
+            blist = []
+            for i in range(1, 10, 2):
+                if board[i] == " ":
+                    blist.append(i)
+            return random.choice(blist)
+
+    if signal == "X" and step1 > 1:
+        for i in range(1, 10):
+            if board[i] == (" "):
+                return i
+
+    if signal == "O" and step1 > 0:
+        for i in range(1, 10):
+            if board[i] == (" "):
+                return i

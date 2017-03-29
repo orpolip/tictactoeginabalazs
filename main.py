@@ -1,5 +1,9 @@
 import sys
-from AI import *
+from modules import *
+
+
+difficulty = difficulty(difficulty)
+
 print("Modes: Human vs. Human (1) - Human vs. Computer (2) - Computer vs. Human (3)")
 
 mode = input("Please select a game mode: ")
@@ -38,6 +42,12 @@ step1 = 0
 while gameisplaying:
     while True:
         if attack1 == "r" or attack2 == "r":
+            difficulty = input("Select difficulty level: Amateur (1) Godlike(2): ")
+            difficulty = int(difficulty)
+            while difficulty != 1 and difficulty != 2:
+                print("Difficulty have to set 1 or 2")
+                difficulty = input(":")
+                difficulty = int(difficulty)
             mode = input("Please select a game mode: ")
             while mode != "1" and mode != "2" and mode != "3":
                 print("mode must be 1,2, or 3")
@@ -56,7 +66,10 @@ while gameisplaying:
                 attack1 = input(Player1 + " select a spot: ")
             else:
                 print("Computer moved")
-                attack1 = comprandom("X", step1, board)
+                if difficulty == 2:
+                    attack1 = comprandom("X", step1, board)
+                if difficulty == 1:
+                    attack1 = compbasic("X", step1, board)
             if attack1 == "r":
                 print("-" + Player1 + " restarted the game-")
                 board = [" "] * 10
@@ -147,7 +160,10 @@ while gameisplaying:
                 attack2 = input(Player2 + " it's your turn now:")
             else:
                 print("computer moved")
-                attack2 = comprandom("O", step1, board)
+                if difficulty == 2:
+                    attack2 = comprandom("O", step1, board)
+                if difficulty == 1:
+                    attack2 = compbasic("O", step1, board)
             if attack2 == "r":
                 print("-Player 2 restarted the game-")
                 board = [" "] * 10
