@@ -1,5 +1,22 @@
+def sep(sep):
+    import sys
+    sep = input("Select game style: Traditional (1) Seppuku(2): ")
+    if sep == "q":
+        sys.exit(0)
+    while sep != "1" and sep != "2":
+        print("Game style have to set 1 or 2")
+        sep = input(":")
+        continue
+    else:
+        sep = int(sep)
+        return sep
+
+
 def difficulty(difficulty):
+    import sys
     difficulty = input("Select difficulty level: Amateur (1) Godlike(2): ")
+    if difficulty == "q":
+        sys.exit(0)
     while difficulty != "1" and difficulty != "2":
         print("Difficulty have to set 1 or 2")
         difficulty = input(":")
@@ -10,7 +27,10 @@ def difficulty(difficulty):
 
 
 def mode(mode):
+    import sys
     mode = input("Please select a game mode: ")
+    if mode == "q":
+        sys.exit(0)
     while mode != "1" and mode != "2" and mode != "3":
         print("mode must be 1,2, or 3")
         mode = input(": ")
@@ -28,6 +48,10 @@ def print_text():
 def print_text2():
     print("INSTRUCTIONS: Use the numbers between 1-9, to place your mark. Press r to restart, or q to quit.")
     print("-------------------------------------------------------------------------------------------------")
+
+
+def print_text3():
+    print("Modes: Human vs. Human (1) - Human vs. Computer (2) - Computer vs. Human (3)")
 
 
 def checkLine(char, board):
@@ -113,6 +137,8 @@ def comprandom(signal, step1, board):
         return random.choice(emptylist)
 
     if signal == "O" and step1 == 1:
+        if board[5] == " ":
+            return 5
         for i in range(1, 10):
             if board[i] == "X":
                 memi = i

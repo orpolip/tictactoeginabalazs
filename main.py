@@ -1,10 +1,10 @@
 import sys
 from modules import *
+from seppukumode import *
 
-
+sep = sep(sep)
 difficulty = difficulty(difficulty)
-
-print("Modes: Human vs. Human (1) - Human vs. Computer (2) - Computer vs. Human (3)")
+print_text3()
 mode = mode(mode)
 gameisplaying = 1
 
@@ -32,12 +32,24 @@ board = [" "] * 10
 attack1 = "a"
 attack2 = "a"
 step1 = 0
-
+dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
 
 while gameisplaying:
     while True:
         if attack1 == "r" or attack2 == "r":
+            sep = input("Select game style: Traditional (1) Seppuku(2): ")
+            if sep == "q":
+                sys.exit(0)
+            while sep != "1" and sep != "2":
+                print("Game style have to set 1 or 2")
+                sep = input(":")
+                continue
+            else:
+                sep = int(sep)
+                pass
             difficulty = input("Select difficulty level: Amateur (1) Godlike(2): ")
+            if difficulty == "q":
+                sys.exit(0)
             while difficulty != "1" and difficulty != "2":
                 print("Difficulty have to set 1 or 2")
                 difficulty = input(":")
@@ -46,6 +58,8 @@ while gameisplaying:
                 difficulty = int(difficulty)
                 pass
             mode = input("Please select a game mode: ")
+            if mode == "q":
+                sys.exit(0)
             while mode != "1" and mode != "2" and mode != "3":
                 print("mode must be 1,2, or 3")
                 mode = input(": ")
@@ -75,6 +89,7 @@ while gameisplaying:
                 board = [" "] * 10
                 step1 = 0
                 restartgame(step1, board, board1)
+                dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
                 continue
             if attack1 == "q":
                 sys.exit(0)
@@ -82,6 +97,7 @@ while gameisplaying:
 
             if board[attack1] != 'X' and board[attack1] != 'O':
                 board[attack1] = 'X'
+                dic[attack1] = 1
                 step1 = step1 + 1
                 break
             else:
@@ -95,7 +111,9 @@ while gameisplaying:
             print("As i said before you have to choose a !NUMBER! between 1 and 9. Try again!")
             continue
 
-    show(board)  # show to ply2
+    if sep == 2:
+        seppuku("O", board, dic)
+    show(board)
 
     if checkLine('X', board):
         board = [" "] * 10
@@ -126,9 +144,9 @@ while gameisplaying:
             break
         if user_input == "y":
             restartgame(step1, board, board1)
+            dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
             continue
-
-    if step1 == 5 and checkLine('X', board) != True:
+    if step1 == 5 and checkLine('X', board) != True and sep == 1:
         board = [" "] * 10
         step1 = 0
         print("This is a draw!")
@@ -151,6 +169,7 @@ while gameisplaying:
             break
         if user_input == "y":
             restartgame(step1, board, board1)
+            dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
             continue
 
     while True:
@@ -169,12 +188,14 @@ while gameisplaying:
                 board = [" "] * 10
                 step1 = 0
                 restartgame(step1, board, board1)
+                dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
                 break
             if attack2 == "q":
                 sys.exit(0)
             attack2 = int(attack2)
             if board[attack2] != 'O' and board[attack2] != 'X':
                 board[attack2] = 'O'
+                dic[attack2] = 2
                 break
             else:
                 print("This spot is taken.")
@@ -187,7 +208,10 @@ while gameisplaying:
             print("As i said before you have to choose a !NUMBER! between 1 and 9. Try again!")
             continue
     if attack2 != 'r':
-        show(board)  # show to ply1
+        if sep == 2:
+            seppuku("X", board, dic)
+        show(board)
+
     if checkLine('O', board):
         board = [" "] * 10
         step1 = 0
@@ -216,4 +240,5 @@ while gameisplaying:
             break
         if user_input == "y":
             restartgame(step1, board, board1)
+            dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
             continue
