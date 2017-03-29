@@ -5,12 +5,7 @@ from modules import *
 difficulty = difficulty(difficulty)
 
 print("Modes: Human vs. Human (1) - Human vs. Computer (2) - Computer vs. Human (3)")
-
-mode = input("Please select a game mode: ")
-while mode != "1" and mode != "2" and mode != "3":
-    print("mode must be 1,2, or 3")
-    mode = input(": ")
-
+mode = mode(mode)
 gameisplaying = 1
 
 if mode == "1":
@@ -43,15 +38,20 @@ while gameisplaying:
     while True:
         if attack1 == "r" or attack2 == "r":
             difficulty = input("Select difficulty level: Amateur (1) Godlike(2): ")
-            difficulty = int(difficulty)
-            while difficulty != 1 and difficulty != 2:
+            while difficulty != "1" and difficulty != "2":
                 print("Difficulty have to set 1 or 2")
                 difficulty = input(":")
+                continue
+            else:
                 difficulty = int(difficulty)
+                pass
             mode = input("Please select a game mode: ")
             while mode != "1" and mode != "2" and mode != "3":
                 print("mode must be 1,2, or 3")
                 mode = input(": ")
+                continue
+            else:
+                pass
             if mode == "1" or mode == "2":
                 step1 = 0
                 Player1 = input("Player1, enter your name here: ")

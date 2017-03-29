@@ -1,12 +1,22 @@
 def difficulty(difficulty):
     difficulty = input("Select difficulty level: Amateur (1) Godlike(2): ")
-    difficulty = int(difficulty)
-    return difficulty
-    while difficulty != 1 and difficulty != 2:
+    while difficulty != "1" and difficulty != "2":
         print("Difficulty have to set 1 or 2")
         difficulty = input(":")
+        continue
+    else:
         difficulty = int(difficulty)
         return difficulty
+
+
+def mode(mode):
+    mode = input("Please select a game mode: ")
+    while mode != "1" and mode != "2" and mode != "3":
+        print("mode must be 1,2, or 3")
+        mode = input(": ")
+        continue
+    else:
+        return mode
 
 
 def print_text():
