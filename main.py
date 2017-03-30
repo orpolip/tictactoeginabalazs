@@ -3,6 +3,7 @@ import pyglet
 from modules import *
 from seppukumode import *
 from anim_title import *
+import os
 
 play_sound(play_sound)
 pass
@@ -247,7 +248,8 @@ while gameisplaying:
             print("Do you want a rematch? y/n")
             user_input = input(": ")
         if user_input == "n":
-            break
+            print("GOOD BYE!")
+            os._exit(0)
         if user_input == "y":
             restartgame(step1, board, board1)
             dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
@@ -272,7 +274,8 @@ while gameisplaying:
             print("Do you want a rematch? y/n")
             user_input = input(": ")
         if user_input == "n":
-            break
+            print("GOOD BYE!")
+            os._exit(0)
         if user_input == "y":
             restartgame(step1, board, board1)
             dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
@@ -345,7 +348,8 @@ while gameisplaying:
             print("Do you want a rematch? y/n")
             user_input = input(": ")
         if user_input == "n":
-            break
+            print("GOOD BYE!")
+            os._exit(0)
         if user_input == "y":
             restartgame(step1, board, board1)
             dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
