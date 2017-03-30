@@ -46,17 +46,6 @@ def mode(mode):
         return mode
 
 
-def print_text():
-    print("************************************")
-    print(" Welcome to TicTacToe!")
-    print("************************************")
-
-
-def print_text2():
-    print("INSTRUCTIONS: Use the numbers between 1-9, to place your mark. Press r to restart, or q to quit.")
-    print("-------------------------------------------------------------------------------------------------")
-
-
 def print_text3():
     print("Modes: Human vs. Human (1) - Human vs. Computer (2) - Computer vs. Human (3)")
 
@@ -89,7 +78,6 @@ def show(board):
 
 
 def restartgame(step1, board, board1):
-    print_text2()
     show(board1)
     return board == [" "] * 10
     return step1 == 0
