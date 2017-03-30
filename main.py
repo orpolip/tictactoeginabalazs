@@ -212,7 +212,7 @@ while gameisplaying:
 
         except IndexError:
             print("As i said before you have to choose a number between 1 and 9. Try again!")
-            continue
+            pass
         except ValueError:
             print("As i said before you have to choose a !NUMBER! between 1 and 9. Try again!")
             continue
@@ -313,7 +313,7 @@ while gameisplaying:
 
         except IndexError:
             print("As i said before you have to choose a number between 1 and 9. Try again!")
-            continue
+            pass
         except ValueError:
             print("As i said before you have to choose a !NUMBER! between 1 and 9. Try again!")
             continue
