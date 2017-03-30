@@ -9,12 +9,36 @@ mode = mode(mode)
 gameisplaying = 1
 
 if mode == "1":
-    Player1 = input("Player1, enter your name here: ")
-    Player2 = input("Player2, enter your name here: ")
+    Player1 = input("Player1, enter your name here (max 20 characters): ")
+    while len(Player1) > 20:
+        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+        Player1 = input(":")
+        continue
+    else:
+        pass
+    Player2 = input("Player2, enter your name here (max 20 characters): ")
+    while len(Player2) > 20:
+        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+        Player2 = input(":")
+        continue
+    else:
+        pass
 if mode == "2":
-    Player1 = input("Enter your name here: ")
+    Player1 = input("Enter your name here (max 20 characters): ")
+    while len(Player1) > 20:
+        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+        Player1 = input(":")
+        continue
+    else:
+        pass
 if mode == "3":
-    Player2 = input("Enter your name here: ")
+    Player2 = input("Enter your name here (max 20 characters): ")
+    while len(Player2) > 20:
+        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+        Player2 = input(":")
+        continue
+    else:
+        pass
 board1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 wins_p1 = 0
 wins_p2 = 0
@@ -68,10 +92,22 @@ while gameisplaying:
                 pass
             if mode == "1" or mode == "2":
                 step1 = 0
-                Player1 = input("Player1, enter your name here: ")
+                Player1 = input("Player1, enter your name here (max 20 characters): ")
+                while len(Player1) > 20:
+                    print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+                    Player1 = input(":")
+                    continue
+                else:
+                    pass
             if mode == "1" or mode == "3":
                 step1 = 0
-                Player2 = input("Player2, enter your name here: ")
+                Player2 = input("Player2, enter your name here (max 20 characters): ")
+                while len(Player2) > 20:
+                    print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+                    Player2 = input(":")
+                    continue
+                else:
+                    pass
             wins_p1 = 0
             wins_p2 = 0
 
