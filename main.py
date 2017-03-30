@@ -211,7 +211,7 @@ while gameisplaying:
 
         except IndexError:
             print("As i said before you have to choose a number between 1 and 9. Try again!")
-            continue
+            pass
         except ValueError:
             print("As i said before you have to choose a !NUMBER! between 1 and 9. Try again!")
             continue
@@ -350,3 +350,4 @@ while gameisplaying:
             restartgame(step1, board, board1)
             dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
             continue
+        continue
