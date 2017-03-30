@@ -4,7 +4,8 @@ from modules import *
 from seppukumode import *
 from anim_title import *
 
-# play_sound()
+play_sound(play_sound)
+pass
 sep = sep(sep)
 difficulty = difficulty(difficulty)
 print_text3()
@@ -14,41 +15,82 @@ gameisplaying = 1
 if mode == "1":
     Player1 = input("Player1, enter your name here (max 20 characters): ")
     while len(Player1) > 20:
-        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
-        Player1 = input(":")
-        continue
+        while len(Player1) > 35:
+            print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+            Player1 = input(":")
+            continue
+        else:
+            pass
+
+        while 35 > len(Player1) > 20:
+            print("Please try to define yourself in max. 20 characters. Try again.")
+            Player1 = input(":")
+            continue
+        else:
+            pass
     else:
         pass
+
     Player2 = input("Player2, enter your name here (max 20 characters): ")
     while len(Player2) > 20:
-        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
-        Player2 = input(":")
-        continue
+        while len(Player2) > 35:
+            print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+            Player2 = input(":")
+            continue
+        else:
+            pass
+
+        while 35 > len(Player2) > 20:
+            print("Please try to define yourself in max. 20 characters. Try again.")
+            Player2 = input(":")
+            continue
+        else:
+            pass
     else:
         pass
+
 if mode == "2":
     Player1 = input("Enter your name here (max 20 characters): ")
     while len(Player1) > 20:
-        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
-        Player1 = input(":")
-        continue
+        while len(Player1) > 35:
+            print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+            Player1 = input(":")
+            continue
+        else:
+            pass
+
+        while 35 > len(Player1) > 20:
+            print("Please try to define yourself in max. 20 characters. Try again.")
+            Player1 = input(":")
+            continue
+        else:
+            pass
     else:
         pass
+
+
 if mode == "3":
     Player2 = input("Enter your name here (max 20 characters): ")
     while len(Player2) > 20:
-        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
-        Player2 = input(":")
-        continue
+        while len(Player2) > 35:
+            print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+            Player2 = input(":")
+            continue
+        else:
+            pass
+
+        while 35 > len(Player2) > 20:
+            print("Please try to define yourself in max. 20 characters. Try again.")
+            Player2 = input(":")
+            continue
+        else:
+            pass
     else:
         pass
 board1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 wins_p1 = 0
 wins_p2 = 0
 
-
-print_text()
-print_text2()
 
 show(board1)
 
@@ -66,9 +108,10 @@ while gameisplaying:
         if attack1 == "r" or attack2 == "r":
             sep = input("Select game style: Traditional (1) Seppuku(2): ")
             if sep == "q":
+                print("GOOD BYE!")
                 sys.exit(0)
             while sep != "1" and sep != "2":
-                print("Game style have to set 1 or 2")
+                print("Game style have to be set 1 or 2")
                 sep = input(":")
                 continue
             else:
@@ -76,6 +119,7 @@ while gameisplaying:
                 pass
             difficulty = input("Select difficulty level: Amateur (1) Godlike(2): ")
             if difficulty == "q":
+                print("GOOD BYE!")
                 sys.exit(0)
             while difficulty != "1" and difficulty != "2":
                 print("Difficulty have to set 1 or 2")
@@ -84,8 +128,9 @@ while gameisplaying:
             else:
                 difficulty = int(difficulty)
                 pass
-            mode = input("Please select a game mode: ")
+            mode = input("Please select a game mode: (1) Human vs Human, (2) Human vs Computer, (3) Computer vs Human: ")
             if mode == "q":
+                print("GOOD BYE!")
                 sys.exit(0)
             while mode != "1" and mode != "2" and mode != "3":
                 print("mode must be 1,2, or 3")
@@ -97,18 +142,38 @@ while gameisplaying:
                 step1 = 0
                 Player1 = input("Player1, enter your name here (max 20 characters): ")
                 while len(Player1) > 20:
-                    print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
-                    Player1 = input(":")
-                    continue
+                    while len(Player1) > 35:
+                        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+                        Player1 = input(":")
+                        continue
+                    else:
+                        pass
+
+                    while 35 > len(Player1) > 20:
+                        print("Please try to define yourself in max. 20 characters. Try again.")
+                        Player1 = input(":")
+                        continue
+                    else:
+                        pass
                 else:
                     pass
             if mode == "1" or mode == "3":
                 step1 = 0
                 Player2 = input("Player2, enter your name here (max 20 characters): ")
                 while len(Player2) > 20:
-                    print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
-                    Player2 = input(":")
-                    continue
+                    while len(Player2) > 35:
+                        print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+                        Player2 = input(":")
+                        continue
+                    else:
+                        pass
+
+                    while 35 > len(Player2) > 20:
+                        print("Please try to define yourself in max. 20 characters. Try again.")
+                        Player2 = input(":")
+                        continue
+                    else:
+                        pass
                 else:
                     pass
             wins_p1 = 0
@@ -131,6 +196,7 @@ while gameisplaying:
                 dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
                 continue
             if attack1 == "q":
+                print("GOOD BYE!")
                 sys.exit(0)
             attack1 = int(attack1)
 
@@ -155,6 +221,8 @@ while gameisplaying:
     show(board)
 
     if checkLine('X', board):
+        play_winsound(play_winsound)
+        pass
         board = [" "] * 10
         step1 = 0
         wins_p1 += 1
@@ -205,7 +273,8 @@ while gameisplaying:
             print("Do you want a rematch? y/n")
             user_input = input(": ")
         if user_input == "n":
-            break
+            print("GOOD BYE!")
+            sys.exit(0)
         if user_input == "y":
             restartgame(step1, board, board1)
             dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
@@ -223,13 +292,14 @@ while gameisplaying:
                 if difficulty == 1:
                     attack2 = compbasic("O", step1, board)
             if attack2 == "r":
-                print("-Player 2 restarted the game-")
+                print("-" + Player2 + " restarted the game-")
                 board = [" "] * 10
                 step1 = 0
                 restartgame(step1, board, board1)
                 dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
                 break
             if attack2 == "q":
+                print("GOOD BYE!")
                 sys.exit(0)
             attack2 = int(attack2)
             if board[attack2] != 'O' and board[attack2] != 'X':
@@ -252,6 +322,8 @@ while gameisplaying:
         show(board)
 
     if checkLine('O', board):
+        play_winsound(play_winsound)
+        pass
         board = [" "] * 10
         step1 = 0
         wins_p2 += 1
@@ -276,7 +348,8 @@ while gameisplaying:
             print("Do you want a rematch? y/n")
             user_input = input(": ")
         if user_input == "n":
-            break
+            print("GOOD BYE!")
+            sys.exit(0)
         if user_input == "y":
             restartgame(step1, board, board1)
             dic = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}

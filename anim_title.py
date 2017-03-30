@@ -166,7 +166,7 @@ def print_instructions():
     # Choose your game mode                          ------------- #
     # Enter your name                                | 4 | 5 | 6 | #
     # Press keys 1-9 to place your marks             ------------- #
-    #                                                | 1 | 2 | 3 | #
+    # Press r to restart, q to quit                  | 1 | 2 | 3 | #
     # Created by: Gáldonyi B. & Paál G.                            #
     #                                                              #
     ################################################################

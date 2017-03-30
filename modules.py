@@ -1,14 +1,22 @@
-# def play_sound():
-#import pyglet
-#song = pyglet.media.load('Mozart - Presto.mp3')
-# song.play()
-# pyglet.app.run()
+def play_sound(play_sound):
+    import pyglet
+    song = pyglet.media.load('Casio-MT-45-16-Beat.wav')
+    song.play()
+    return play_sound
+
+
+def play_winsound(play_winsound):
+    import pyglet
+    song = pyglet.media.load('1_person_cheering-Jett_Rifkin-1851518140.wav')
+    song.play()
+    return play_sound
 
 
 def sep(sep):
     import sys
     sep = input("Select game style: Traditional (1) Seppuku(2): ")
     if sep == "q":
+        print("GOOD BYE!")
         sys.exit(0)
     while sep != "1" and sep != "2":
         print("Game style have to set 1 or 2")
@@ -23,6 +31,7 @@ def difficulty(difficulty):
     import sys
     difficulty = input("Select difficulty level: Amateur (1) Godlike(2): ")
     if difficulty == "q":
+        print("GOOD BYE!")
         sys.exit(0)
     while difficulty != "1" and difficulty != "2":
         print("Difficulty have to set 1 or 2")
@@ -37,6 +46,7 @@ def mode(mode):
     import sys
     mode = input("Please select a game mode: ")
     if mode == "q":
+        print("GOOD BYE!")
         sys.exit(0)
     while mode != "1" and mode != "2" and mode != "3":
         print("mode must be 1,2, or 3")
@@ -44,17 +54,6 @@ def mode(mode):
         continue
     else:
         return mode
-
-
-def print_text():
-    print("************************************")
-    print(" Welcome to TicTacToe!")
-    print("************************************")
-
-
-def print_text2():
-    print("INSTRUCTIONS: Use the numbers between 1-9, to place your mark. Press r to restart, or q to quit.")
-    print("-------------------------------------------------------------------------------------------------")
 
 
 def print_text3():
@@ -89,7 +88,6 @@ def show(board):
 
 
 def restartgame(step1, board, board1):
-    print_text2()
     show(board1)
     return board == [" "] * 10
     return step1 == 0
