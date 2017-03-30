@@ -1,5 +1,5 @@
 import sys
-import pyglet
+#import pyglet
 from modules import *
 from seppukumode import *
 from anim_title import *
@@ -31,18 +31,30 @@ if mode == "1":
     else:
         pass
 
+<<<<<<< HEAD
     Player2 = input("Player2, enter your name here (max 20 characters): ")
     while len(Player2) > 20:
         while len(Player2) > 35:
             print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
             Player2 = input(":")
+=======
+    Player2 = input("Enter your name here (max 20 characters): ")
+    while len(Player2) > 20:
+        while len(Player2) > 35:
+            print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+            Player1 = input(":")
+>>>>>>> c14dbf70ee9e5b6cf98ab643428fa596154d7831
             continue
         else:
             pass
 
         while 35 > len(Player2) > 20:
             print("Please try to define yourself in max. 20 characters. Try again.")
+<<<<<<< HEAD
             Player2 = input(":")
+=======
+            Player1 = input(":")
+>>>>>>> c14dbf70ee9e5b6cf98ab643428fa596154d7831
             continue
         else:
             pass
@@ -74,14 +86,22 @@ if mode == "3":
     while len(Player2) > 20:
         while len(Player2) > 35:
             print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+<<<<<<< HEAD
             Player2 = input(":")
+=======
+            Player1 = input(":")
+>>>>>>> c14dbf70ee9e5b6cf98ab643428fa596154d7831
             continue
         else:
             pass
 
         while 35 > len(Player2) > 20:
             print("Please try to define yourself in max. 20 characters. Try again.")
+<<<<<<< HEAD
             Player2 = input(":")
+=======
+            Player1 = input(":")
+>>>>>>> c14dbf70ee9e5b6cf98ab643428fa596154d7831
             continue
         else:
             pass
@@ -163,14 +183,22 @@ while gameisplaying:
                 while len(Player2) > 20:
                     while len(Player2) > 35:
                         print("Dude, I feel like You're bugtesting here (or You have a damn long name)... try again")
+<<<<<<< HEAD
                         Player2 = input(":")
+=======
+                        Player1 = input(":")
+>>>>>>> c14dbf70ee9e5b6cf98ab643428fa596154d7831
                         continue
                     else:
                         pass
 
                     while 35 > len(Player2) > 20:
                         print("Please try to define yourself in max. 20 characters. Try again.")
+<<<<<<< HEAD
                         Player2 = input(":")
+=======
+                        Player1 = input(":")
+>>>>>>> c14dbf70ee9e5b6cf98ab643428fa596154d7831
                         continue
                     else:
                         pass
@@ -292,7 +320,11 @@ while gameisplaying:
                 if difficulty == 1:
                     attack2 = compbasic("O", step1, board)
             if attack2 == "r":
+<<<<<<< HEAD
                 print("-" + Player2 + " restarted the game-")
+=======
+                print("-"+Player2+" restarted the game-")
+>>>>>>> c14dbf70ee9e5b6cf98ab643428fa596154d7831
                 board = [" "] * 10
                 step1 = 0
                 restartgame(step1, board, board1)
