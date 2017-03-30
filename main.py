@@ -1,7 +1,10 @@
 import sys
+import pyglet
 from modules import *
 from seppukumode import *
+from anim_title import *
 
+# play_sound()
 sep = sep(sep)
 difficulty = difficulty(difficulty)
 print_text3()

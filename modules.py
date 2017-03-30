@@ -1,3 +1,10 @@
+# def play_sound():
+#import pyglet
+#song = pyglet.media.load('Mozart - Presto.mp3')
+# song.play()
+# pyglet.app.run()
+
+
 def sep(sep):
     import sys
     sep = input("Select game style: Traditional (1) Seppuku(2): ")
