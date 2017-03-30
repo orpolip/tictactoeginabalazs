@@ -161,12 +161,12 @@ def print_title():
 def print_instructions():
     print("""
     ################################################################
-    # Informations/rules:                               7 | 8 | 9  #
-    #                                                  ----------- #
-    # Choose your game mode                             4 | 5 | 6  #
-    # Enter your name                                  ----------- #
-    # Press keys 1-9 to place your marks                1 | 2 | 3  #
-    #                                                              #
+    # Informations/rules:                                          #
+    #                                                | 7 | 8 | 9 | #
+    # Choose your game mode                          ------------- #
+    # Enter your name                                | 4 | 5 | 6 | #
+    # Press keys 1-9 to place your marks             ------------- #
+    #                                                | 1 | 2 | 3 | #
     # Created by: Gáldonyi B. & Paál G.                            #
     #                                                              #
     ################################################################
